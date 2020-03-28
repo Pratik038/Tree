@@ -1,0 +1,22 @@
+bool isSubtreeLesser(BstNode *root, int value){
+	if(root==NULL) return true;
+	if(root->data <= value && isSubtreeLesser(root->left,value) && isSubtreeLesser(root->right,value))
+		return true;
+	else return false;
+}
+
+bool isSubtreeGreater(BstNode *root, int value){
+	if(root==NULL) return true;
+	if(root->data > value && isSubtreeGreater(root->left,value) && isSubtreeGreater(root->right,value))
+		return true;
+	else return false;
+}
+
+bool isBST(BstNode *root){
+	if(root==NULL) return true;
+	
+	if(isSubtreeLesser(root->left,root->data) && isSubtreeGreater(root->right,root->data) && isBST(root->left) && isBST(root->right))
+  	return true;
+	else
+		return false;
+}
