@@ -1,0 +1,10 @@
+int findHeight(BstNode *root){
+	if(root==NULL) return -1;
+	int leftHeight=findHeight(root->left);
+	int rightHeight=findHeight(root->right);
+	
+	if(leftHeight < rightHeight)
+		return rightHeight+1;
+	else
+		return leftHeight+1;
+}
