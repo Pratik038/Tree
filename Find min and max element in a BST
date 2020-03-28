@@ -1,0 +1,21 @@
+int findMin(BstNode *root){
+	if(root==NULL){
+		cout<<"ERROR: TREE IS EMPTY\n";
+		return -1;
+	}
+	while(root->left!=NULL)
+		root=root->left;
+	return root->data;
+}
+
+//----------------------------------------------------
+
+int findMax(BstNode *root){
+	if(root==NULL){
+		cout<<"ERROR: TREE IS EMPTY\n";
+		return -1;
+	}
+	while(root->right!=NULL)
+		root=root->right;
+	return root->data;
+}
