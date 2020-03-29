@@ -1,0 +1,12 @@
+bool isBST(BstNode *root,int *prev){
+	if(!root) return true;
+	if(!isBST(root->left,prev))
+		return false;
+	
+	if(root->data < *prev) return false;
+	*prev=root->data;
+	return isBST(root->right,prev);
+}
+
+// we must initial prev as minimum possible value. i.e int prev=INT_MIN in main().
+// And pass the reference of the prev in the calling function
